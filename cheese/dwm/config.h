@@ -5,10 +5,8 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
-//static const char *fonts[]          = { "monospace:size=10" };
-static const char *fonts[]          = { "Ubuntu Mono:size=10:style=Bold" };
-//static const char dmenufont[]       = "monospace:size=10";
-static const char dmenufont[]       = "Ubuntu Mono:size=10:style=Bold";
+static const char *fonts[]          = { "monospace:size=10:sytle=Bold" };
+static const char dmenufont[]       = "monospace:size=10:style=Bold";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -47,7 +45,7 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
@@ -68,9 +66,9 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY,                       XK_equal,  spawn,          {.v = aupcmd } },
-    { MODKEY,                       XK_minus,  spawn,          {.v = adowncmd } },
-    { MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dictcmd } },
+	{ MODKEY,                       XK_equal,  spawn,          {.v = aupcmd } },
+	{ MODKEY,                       XK_minus,  spawn,          {.v = adowncmd } },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dictcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -124,3 +122,4 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
+/* vim: set noexpandtab: */

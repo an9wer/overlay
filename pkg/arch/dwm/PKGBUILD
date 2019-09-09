@@ -5,10 +5,10 @@ pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')
-depends=('libx11' 'libxinerama' 'libxft')
+depends=('libx11' 'libxft' 'libxinerama')
 source=(config.h
         "$pkgname::git://git.suckless.org/dwm")
-md5sums=('652d65ade3719d9f1e9ee41153d0af50'
+md5sums=('a2a8f58328995e08dfa292f424dc2c6a'
          'SKIP')
 
 prepare() {
