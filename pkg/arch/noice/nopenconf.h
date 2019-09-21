@@ -10,4 +10,4 @@ struct rule rules[] = {
 	{ .regex = ".", .file = "less", .argv = { "less", "{}", NULL } },
 };
 
-/* vim: set filetype=c */
+/* vim: set filetype=c: */

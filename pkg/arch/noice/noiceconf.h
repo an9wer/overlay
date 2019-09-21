@@ -98,4 +98,4 @@ struct key bindings[] = {
 	{ 'C',            SEL_RUNARG, "/usr/lib/noice/copy.sh"},
 };
 
-/* vim: set filetype=c */
+/* vim: set filetype=c: */
