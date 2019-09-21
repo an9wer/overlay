@@ -1,17 +1,25 @@
 _commit=bfe589a
 pkgname=noice
 pkgver=0.8
-pkgrel=1
+pkgrel=2
 pkgdesc='A small curses-based file browser'
 url='http://git.2f30.org/noice/'
 arch=('x86_64')
 licenses=('BSD')
-makedepdends=('git' 'makepkg' 'gcc' 'fakeroot')
+makedepends=('git' 'make' 'gcc' 'fakeroot')
 source=(noiceconf.h
         nopenconf.h
+        select.sh
+        list.sh
+        move.sh
+        copy.sh
         "$pkgname::git://git.2f30.org/noice")
-md5sums=('860847783a60f02baf8c71932e3a81ad'
-         '10435823720aacaf598c9cee3526f0bf'
+md5sums=('8a28c4d24f288a2cedda2e0f40f9b6aa'
+         '625af08e7cb97ded606f4f16e69d4c57'
+         '632a0441d5675f43fc033d3eb19fbab8'
+         '7438f128ace622b1a4ea98571699c01b'
+         '99b750e58d4c972f7563abdd69f16941'
+         '210ab0300617ba71ed599f67ded0ec73'
          'SKIP')
 
 pkgver() {
@@ -32,6 +40,11 @@ build() {
 }
 
 package() {
+  install -m755 -D list.sh "$pkgdir/usr/lib/noice/list.sh"
+  install -m755 -D move.sh "$pkgdir/usr/lib/noice/move.sh"
+  install -m755 -D copy.sh "$pkgdir/usr/lib/noice/copy.sh"
+  install -m755 -D select.sh "$pkgdir/usr/lib/noice/select.sh"
+
   cd "$pkgname"
   make PREFIX=/usr DESTDIR="$pkgdir" install
   install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"

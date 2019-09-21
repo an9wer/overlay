@@ -92,4 +92,10 @@ struct key bindings[] = {
 	/* Run command with argument */
 	{ 'e',            SEL_RUNARG, "vi", "EDITOR" },
 	{ 'p',            SEL_RUNARG, "less", "PAGER" },
+	{ 'S',            SEL_RUNARG, "/usr/lib/noice/select.sh"},
+	{ 'L',            SEL_RUNARG, "/usr/lib/noice/list.sh"},
+	{ 'M',            SEL_RUNARG, "/usr/lib/noice/move.sh"},
+	{ 'C',            SEL_RUNARG, "/usr/lib/noice/copy.sh"},
 };
+
+/* vim: set filetype=c */

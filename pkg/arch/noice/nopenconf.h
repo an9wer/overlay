@@ -9,3 +9,5 @@ struct rule rules[] = {
 	{ .regex = "\\.sh$", .file = "sh", .argv = { "sh", "{}", NULL} },
 	{ .regex = ".", .file = "less", .argv = { "less", "{}", NULL } },
 };
+
+/* vim: set filetype=c */
