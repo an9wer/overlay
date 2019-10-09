@@ -1,5 +1,6 @@
+_commit=cb3f58a
 pkgname=dwm
-pkgver=6.2
+pkgver=$_commit
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
@@ -7,13 +8,24 @@ arch=('i686' 'x86_64')
 license=('MIT')
 depends=('libx11' 'libxft' 'libxinerama')
 source=(config.h
+        dwm.patch
         "$pkgname::git://git.suckless.org/dwm")
-md5sums=('a2a8f58328995e08dfa292f424dc2c6a'
+md5sums=('1dc8137b1f36e9d4f3ede1c16514fb3a'
+         'ee94a4f98596ab6730e1e97a2703cdd2'
          'SKIP')
 
 prepare() {
   cd "$pkgname"
+  git checkout "$_commit"
   cp "$srcdir/config.h" config.h
+  patch --forward --strip=1 --input="${srcdir}/dwm.patch"
+}
+
+pkgver() {
+  cd "$pkgname"
+  git stash save --quiet
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+  git stash pop --quiet
 }
 
 build() {
