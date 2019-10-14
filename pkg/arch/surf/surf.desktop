@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Surf
+Comment=Browse the World Wide Web
+Type=Application
+Path=/usr/bin
+Exec=surf
+Terminal=false
+Categories=Network;WebBrowser;
