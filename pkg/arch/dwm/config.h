@@ -60,7 +60,7 @@ static const char *dmenupasscmd[] = { "dmenu_pass_run", "-m", dmenumon, "-fn", d
 static const char *termcmd[]  = { "st", NULL };
 static const char *aupcmd[]   = { "amixer", "set", "Master", "2%+", NULL };
 static const char *adowncmd[] = { "amixer", "set", "Master", "2%-", NULL };
-static const char *dictcmd[]  = { "st", "-e", "camdict", "--less", NULL };
+static const char *dictcmd[]  = { "camdict", NULL };
 
 /* X11 key map: https://www.cl.cam.ac.uk/~mgk25/ucs/keysymdef.h */
 static Key keys[] = {
