@@ -1,6 +1,6 @@
 _commit=db6093f
 pkgname=dmenu
-pkgver=$_commit
+pkgver=4.9.r5.gdb6093f
 pkgrel=2
 pkgdesc="An efficient dynamic menu for X."
 url="https://tools.suckless.org/dmenu/"
@@ -12,7 +12,7 @@ source=(config.h
         dmenu_pass
         dmenu_pass_run
         "$pkgname::git://git.suckless.org/dmenu")
-md5sums=('103513e1be421fc4f9d82b5798638bf1'
+md5sums=('797055fb501285c71c97b85254b8d2c5'
          '455aee5614ffff135a895ef0d8c8f1ed'
          '6876ba61f96acb8f125f645915e3427e'
          'SKIP')
