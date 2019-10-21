@@ -1,7 +1,7 @@
 _commit=cb3f58a
 pkgname=dwm
 pkgver=6.2.r0.gcb3f58a
-pkgrel=3
+pkgrel=4
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
 arch=('x86_64')
@@ -11,7 +11,7 @@ depends=('libx11' 'libxft' 'libxinerama')
 source=(config.h
         dwm.patch
         "$pkgname::git://git.suckless.org/dwm#commit=$_commit")
-md5sums=('0d0dc5323f3e00e6c62f9f62ead3535c'
+md5sums=('bab46dfd024dd63119a5df4b5d05630f'
          'ee94a4f98596ab6730e1e97a2703cdd2'
          'SKIP')
 
