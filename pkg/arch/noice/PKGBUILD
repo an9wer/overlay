@@ -1,6 +1,6 @@
 _commit=bfe589a
 pkgname=noice
-pkgver=0.8
+pkgver=0.8.r40.gbfe589a
 pkgrel=2
 pkgdesc='A small curses-based file browser'
 url='http://git.2f30.org/noice/'
@@ -13,25 +13,24 @@ source=(noiceconf.h
         list.sh
         move.sh
         copy.sh
-        "$pkgname::git://git.2f30.org/noice")
-md5sums=('8a28c4d24f288a2cedda2e0f40f9b6aa'
-         '625af08e7cb97ded606f4f16e69d4c57'
-         '632a0441d5675f43fc033d3eb19fbab8'
-         '7438f128ace622b1a4ea98571699c01b'
-         '99b750e58d4c972f7563abdd69f16941'
-         '210ab0300617ba71ed599f67ded0ec73'
+        "$pkgname::git://git.2f30.org/noice#commit=$_commit")
+md5sums=('8f88979fe8d3365062048f966caa5d9e'
+         'c000256bb43c7ccfedec6b469d5452c8'
+         'fb3c4a46fa45961e81d13f75f99fa2d9'
+         'd7217fc1990d42a8ced33a2c29e1dd7a'
+         '2f9a71c465e3b08da1a27be6bb118e34'
+         'b0d90b6645de6acb7d4c573d65a35f3e'
          'SKIP')
-
-pkgver() {
-  cd "$pkgname"
-  git checkout "$_commit"
-  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
-}
 
 prepare() {
   cd "$pkgname"
   cp "$srcdir/noiceconf.h" noiceconf.h
   cp "$srcdir/nopenconf.h" nopenconf.h
+}
+
+pkgver() {
+  cd "$pkgname"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {

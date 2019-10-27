@@ -3,14 +3,20 @@
 # Move selected files to current directory
 
 TEMP=/tmp/noice.$PPID
-FILE=$(dirname $(realpath -s "$1"))
+CDIR=$(pwd)
 
 touch "$TEMP"
 if [[ -s $TEMP ]]; then
-  mv $(cat "$TEMP") "$FILE"
+  while IFS=$'\n' read -r f; do
+    if [[ -e $f ]]; then
+      mv "$f" "$CDIR"
+    else
+      echo "ERROR: '$f' does not exist."
+    fi
+  done < "$TEMP"
   > "$TEMP"
   read -t3 -n1 -s -p 'Press any key to exit.' anykey
 else
-  read -t3 -n1 -s -p 'Selected list is empty, press any key to exit.' anykey
+  read -t3 -n1 -s -p 'Select list is empty, press any key to exit.' anykey
 fi
-echo
+echo -e "\n\n"

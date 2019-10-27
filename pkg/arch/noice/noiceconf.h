@@ -89,13 +89,13 @@ struct key bindings[] = {
 	/* Run command */
 	{ 'z',            SEL_RUN, "top" },
 	{ '!',            SEL_RUN, "sh", "SHELL" },
+	{ 'L',            SEL_RUN, "/usr/lib/noice/list.sh"},
+	{ 'M',            SEL_RUN, "/usr/lib/noice/move.sh"},
+	{ 'C',            SEL_RUN, "/usr/lib/noice/copy.sh"},
 	/* Run command with argument */
 	{ 'e',            SEL_RUNARG, "vi", "EDITOR" },
 	{ 'p',            SEL_RUNARG, "less", "PAGER" },
 	{ 'S',            SEL_RUNARG, "/usr/lib/noice/select.sh"},
-	{ 'L',            SEL_RUNARG, "/usr/lib/noice/list.sh"},
-	{ 'M',            SEL_RUNARG, "/usr/lib/noice/move.sh"},
-	{ 'C',            SEL_RUNARG, "/usr/lib/noice/copy.sh"},
 };
 
 /* vim: set filetype=c: */
