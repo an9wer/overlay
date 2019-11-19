@@ -1,7 +1,7 @@
 _commit=ce8e1e5
 pkgname=base16-shell
 pkgver=$_commit
-pkgrel=2
+pkgrel=3
 pkgdesc="A shell script to change your shell's default ANSI colors"
 url='https://github.com/chriskempson/base16-shell'
 arch=('x86_64')
@@ -9,7 +9,7 @@ licenses=('MIT')
 makedepends=('git' 'fakeroot')
 source=(base16.sh
         "$pkgname::git://github.com/chriskempson/base16-shell.git#commit=$_commit")
-md5sums=('94eb5af5054fbb266907986e1214726a'
+md5sums=('b3e0a99f8b4dcaeb0861b7fecb4e34d6'
          'SKIP')
 install=$pkgname.install
 

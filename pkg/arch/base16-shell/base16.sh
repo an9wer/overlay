@@ -4,7 +4,7 @@ base16() {
       echo "${BASE16_THEME}"
       base16-resource
     elif [[ -r ~/.base16 ]]; then
-      head -n1 ~/.bash16
+      head -n1 ~/.base16
       base16-resource
     else
       echo unset
