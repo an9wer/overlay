@@ -1,12 +1,12 @@
 _commit=bfe589a
 pkgname=noice
 pkgver=0.8.r40.gbfe589a
-pkgrel=2
+pkgrel=3
 pkgdesc='A small curses-based file browser'
 url='http://git.2f30.org/noice/'
 arch=('x86_64')
 licenses=('BSD')
-makedepends=('git' 'make' 'gcc' 'fakeroot')
+makedepends=('git' 'make' 'gcc')
 source=(noiceconf.h
         nopenconf.h
         select.sh
@@ -45,7 +45,7 @@ package() {
   install -m755 -D select.sh "$pkgdir/usr/lib/noice/select.sh"
 
   cd "$pkgname"
-  make PREFIX=/usr DESTDIR="$pkgdir" install
+  make PREFIX=/usr MANPREFIX=/usr/share/man DESTDIR="$pkgdir" install
   install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -m644 -D README  "$pkgdir/usr/share/doc/$pkgname/README"
 }
