@@ -7,6 +7,7 @@ USER root:root
 WORKDIR /root
 RUN pacman -Syu --needed --noconfirm \
     binutils \
+    fakeroot \
     sudo \
     gawk \
     grep \

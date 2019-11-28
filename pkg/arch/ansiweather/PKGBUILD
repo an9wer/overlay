@@ -1,0 +1,20 @@
+_commit=ed4e421
+pkgname=ansiweather
+pkgver=$_commit
+pkgrel=1
+pkgdesc='A Shell script for displaying the current weather conditions in your terminal'
+url='https://github.com/fcambus/ansiweather'
+arch=('x86_64')
+licenses=('BSD 2-Clause')
+makedepends=('git')
+depends=('bc' 'jq')
+source=("$pkgname::git://github.com/fcambus/ansiweather.git#commit=$_commit")
+md5sums=('SKIP')
+
+package() {
+  cd "$pkgname"
+  install -m755 -D ansiweather "$pkgdir/usr/bin/ansiweather"
+  install -m644 -D ansiweather.1 "$pkgdir/usr/share/man/man1/ansiweather.1"
+  install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -m644 -D README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+}
