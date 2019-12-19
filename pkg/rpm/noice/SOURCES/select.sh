@@ -1,0 +1,1 @@
+../../../../src/noice/select.sh
