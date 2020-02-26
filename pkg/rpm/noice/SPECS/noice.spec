@@ -22,15 +22,13 @@ with a TV remote control for a media center solution.
 
 
 %prep
-pushd %{_sourcedir}
-git clone git://git.2f30.org/noice
-cd noice
-git checkout %{version}
-popd
 rm -rf noice
-mv %{_sourcedir}/noice .
-%setup -T -D -n noice
+git clone git://git.2f30.org/noice
+pushd noice
+git checkout %{version}
 cp %{SOURCE0} %{SOURCE1} .
+popd
+%setup -T -D -n noice
 
 
 %build
@@ -50,19 +48,16 @@ install -m 0644 -D LICENSE %{buildroot}/usr/share/licenses/%{name}/LICENSE
 %files
 %{_bindir}/noice
 %{_bindir}/nopen
-%{_libdir}/%{name}
 %{_libdir}/%{name}/copy.sh
 %{_libdir}/%{name}/list.sh
 %{_libdir}/%{name}/move.sh
 %{_libdir}/%{name}/select.sh
 %{_mandir}/man1/noice.1.gz
 %{_mandir}/man1/nopen.1.gz
-/usr/share/doc/%{name}
 %doc /usr/share/doc/%{name}/README
-/usr/share/licenses/%{name}
 %license /usr/share/licenses/%{name}/LICENSE
 
 
 %changelog
-* Mon Feb 03 2020 Runney Wu <an9wer@gmail.com> bfe589a
+* Mon Feb 26 2020 Runney Wu <an9wer@gmail.com> bfe589a
 - Initial RPM release
