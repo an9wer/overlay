@@ -1,0 +1,12 @@
+--- v2ray.service.orig	2010-01-01 00:00:00.000000000 +0800
++++ v2ray.service	2020-02-27 15:43:37.802405331 +0800
+@@ -11,7 +11,8 @@
+ # Group=v2ray
+ Type=simple
+ PIDFile=/run/v2ray.pid
+-ExecStart=/usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
++Environment=V2RAY_LOCATION_ASSET=/usr/lib64/v2ray
++ExecStart=/usr/bin/v2ray -config /etc/v2ray/config.json
+ Restart=on-failure
+ # Don't restart in the case of configuration error
+ RestartPreventExitStatus=23
