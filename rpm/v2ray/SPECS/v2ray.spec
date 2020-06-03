@@ -1,6 +1,6 @@
 Name:           v2ray
-Version:        4.22.1
-Release:        2%{?dist}
+Version:        4.23.3
+Release:        1%{?dist}
 Summary:        A platform for building proxies to bypass network restrictions.
 
 License:        MIT
@@ -43,6 +43,9 @@ install -m 0644 -D doc/readme.md %{buildroot}%{_datadir}/doc/%{name}/readme.md
 
 
 %changelog
+* Wed Jun 03 2020 Runney Wu <an9wer@gmail.com> 4.23.1-1
+- Bump to version 4.23.1
+
 * Tue Feb 26 2020 Runney Wu <an9wer@gmail.com> 4.22.1-2
 - Add v2ray@.service
 
