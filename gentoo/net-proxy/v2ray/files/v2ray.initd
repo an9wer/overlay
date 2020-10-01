@@ -1,0 +1,54 @@
+#!/sbin/openrc-run
+# Copyright 2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="v2ray daemon"
+description=""
+
+: ${V2RAY_CONFIG:=/etc/v2ray/config.json}
+: ${V2RAY_PID:=/run/v2ray.pid}
+: ${V2RAY_LOG:=/var/log/v2ray.log}
+
+command=/usr/bin/v2ray
+command_args="${V2RAY_ARGS}"
+command_user=nobody:nobody
+extra_commands="checkconfig"
+
+depend() {
+	need net
+}
+
+checkconfig() {
+	if [[ ! -f ${V2RAY_CONFIG} ]]; then
+		ewarn "${V2RAY_CONFIG} does not exist."
+		return 1
+	fi
+}
+
+start_pre() {
+	checkconfig || return $?
+}
+
+start() {
+	ebegin "Starting v2ray daemon"
+	ebegin "Log File: ${V2RAY_LOG}"
+	start-stop-daemon --start --background	\
+		-1 ${V2RAY_LOG} 		\
+		-2 ${V2RAY_LOG}			\
+		-m -p ${V2RAY_PID}		\
+		--user ${command_user}		\
+		--exec ${command} -- ${command_args} -config ${V2RAY_CONFIG}
+	eend $?
+}
+
+stop_pre() {
+	checkconfig || return $?
+}
+
+stop() {
+	ebegin "Stopping v2ray daemon"
+	start-stop-daemon --stop -p ${V2RAY_PID}
+	eend $?
+}
+
+
