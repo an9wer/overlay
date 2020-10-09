@@ -3,30 +3,37 @@
 # Distributed under the terms of the GNU General Public License v2
 
 name="v2ray daemon"
-description=""
 
-: ${V2RAY_CONFIG:=/etc/v2ray/config.json}
-: ${V2RAY_PID:=/run/v2ray.pid}
+V2RAY_CMD=/usr/bin/v2ray
+V2RAY_PID=/var/run/v2ray.pid
+V2RAY_USER=nobody:nobbody
+
 : ${V2RAY_LOG:=/var/log/v2ray.log}
-
-command=/usr/bin/v2ray
-command_args="${V2RAY_ARGS}"
-command_user=nobody:nobody
-extra_commands="checkconfig"
+: ${V2RAY_CONFIG:=/etc/v2ray/config.json}
 
 depend() {
 	need net
 }
 
-checkconfig() {
+check_config() {
 	if [[ ! -f ${V2RAY_CONFIG} ]]; then
-		ewarn "${V2RAY_CONFIG} does not exist."
-		return 1
+		eend 1 "${V2RAY_CONFIG} does not exist."
+	fi
+}
+
+create_logfile()
+{
+	touch ${V2RAY_LOG}
+	if [[ ! -f ${V2RAY_LOG} ]]; then
+		eend 1 "${V2RAY_LOG} cannot be created."
+	else
+		chown ${V2RAY_USER} ${V2RAY_LOG}
 	fi
 }
 
 start_pre() {
-	checkconfig || return $?
+	check_config || eend $?
+	create_logfile || eend $?
 }
 
 start() {
@@ -36,13 +43,13 @@ start() {
 		-1 ${V2RAY_LOG} 		\
 		-2 ${V2RAY_LOG}			\
 		-m -p ${V2RAY_PID}		\
-		--user ${command_user}		\
-		--exec ${command} -- ${command_args} -config ${V2RAY_CONFIG}
+		--user ${V2RAY_USER}		\
+		--exec ${V2RAY_CMD} -- -config ${V2RAY_CONFIG}
 	eend $?
 }
 
 stop_pre() {
-	checkconfig || return $?
+	check_config || eend $?
 }
 
 stop() {
@@ -50,5 +57,3 @@ stop() {
 	start-stop-daemon --stop -p ${V2RAY_PID}
 	eend $?
 }
-
-
