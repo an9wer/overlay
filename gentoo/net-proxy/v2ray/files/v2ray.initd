@@ -6,7 +6,7 @@ name="v2ray daemon"
 
 V2RAY_CMD=/usr/bin/v2ray
 V2RAY_PID=/var/run/v2ray.pid
-V2RAY_USER=nobody:nobbody
+V2RAY_USER=nobody:nobody
 
 : ${V2RAY_LOG:=/var/log/v2ray.log}
 : ${V2RAY_CONFIG:=/etc/v2ray/config.json}
