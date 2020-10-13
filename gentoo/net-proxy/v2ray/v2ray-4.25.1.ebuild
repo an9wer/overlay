@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+inherit fcaps
 
 DESCRIPTION="A platform for building proxies to bypass network restrictions."
 HOMEPAGE=" https://www.v2ray.com/"
@@ -29,4 +30,9 @@ src_install() {
 	doins *.json
 
 	newinitd "${FILESDIR}/v2ray.initd" v2ray
+}
+
+pkg_postinst() {
+	fcaps CAP_NET_ADMIN /usr/bin/v2ray
+	fcaps CAP_NET_ADMIN /usr/bin/v2ctl
 }
