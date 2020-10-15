@@ -4,7 +4,7 @@
 EAPI=7
 inherit git-r3 savedconfig toolchain-funcs
 
-DESCRIPTION=""
+DESCRIPTION="An efficient dynamic menu for X"
 HOMEPAGE="https://tools.suckless.org/dmenu/"
 SRC_URI=""
 
@@ -30,7 +30,6 @@ src_prepare() {
 
 	restore_config config.h
 }
-
 
 src_compile() {
 	if use xinerama; then

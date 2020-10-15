@@ -4,7 +4,7 @@
 EAPI=7
 inherit git-r3 savedconfig toolchain-funcs
 
-DESCRIPTION="a dynamic window manager for X11"
+DESCRIPTION="A dynamic window manager for X11"
 HOMEPAGE="https://dwm.suckless.org/"
 SRC_URI=""
 

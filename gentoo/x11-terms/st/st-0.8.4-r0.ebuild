@@ -4,7 +4,7 @@
 EAPI=7
 inherit git-r3 savedconfig toolchain-funcs
 
-DESCRIPTION="simple terminal implementation for X"
+DESCRIPTION="Simple terminal implementation for X"
 HOMEPAGE="https://st.suckless.org/"
 SRC_URI=""
 
