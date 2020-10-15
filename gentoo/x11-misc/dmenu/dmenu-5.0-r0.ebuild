@@ -8,7 +8,7 @@ DESCRIPTION=""
 HOMEPAGE="https://tools.suckless.org/dmenu/"
 SRC_URI=""
 
-LICENSE="MIT/X Consortium License"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64"
 IUSE="xinerama"
