@@ -16,8 +16,8 @@ IUSE=""
 DEPEND=""
 RDEPEND="
 	${DEPEND}
-	sys-fs/fuse
-
+	sys-fs/fuse:0
+	net-print/cups
 "
 BDEPEND=""
 
@@ -29,5 +29,5 @@ src_unpack() {
 src_install() {
 	exeinto /usr
 	doexe Joplin-${PV}.AppImage 
-	newbin Joplin-${PV}.AppImage Joplin
+	newbin Joplin-${PV}.AppImage joplin
 }
