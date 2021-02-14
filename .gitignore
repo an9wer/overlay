@@ -1,0 +1,3 @@
+arch/*/src
+arch/*/pkg
+arch/*/*.pkg.tar.zst
