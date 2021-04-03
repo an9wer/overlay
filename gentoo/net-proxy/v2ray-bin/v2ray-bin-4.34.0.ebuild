@@ -6,7 +6,7 @@ inherit fcaps
 
 DESCRIPTION="A platform for building proxies to bypass network restrictions"
 HOMEPAGE=" https://www.v2ray.com/"
-SRC_URI="https://github.com/v2ray/v2ray-core/releases/download/v${PV}/v2ray-linux-64.zip"
+SRC_URI="https://github.com/v2fly/v2ray-core/releases/download/v${PV}/v2ray-linux-64.zip"
 
 LICENSE="MIT"
 SLOT="0"
