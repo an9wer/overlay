@@ -7,6 +7,7 @@ name="v2ray daemon"
 V2RAY_CMD=/usr/bin/v2ray
 V2RAY_PID=/var/run/v2ray.pid
 V2RAY_USER=nobody:nobody
+V2RAY_ASSET=/usr/share/v2ray
 
 : ${V2RAY_LOG:=/var/log/v2ray.log}
 : ${V2RAY_CONFIG:=/etc/v2ray/config.json}
@@ -19,7 +20,7 @@ check_config() {
 	if [[ ! -f ${V2RAY_CONFIG} ]]; then
 		eend 1 "${V2RAY_CONFIG} does not exist."
 	fi
-  ${V2RAY_CMD} -test -config ${V2RAY_CONFIG}
+  V2RAY_LOCATION_ASSET=${V2RAY_ASSET} ${V2RAY_CMD} -test -config ${V2RAY_CONFIG}
   eend $? "Failed to parse ${V2RAY_CONFIG}."
 }
 
@@ -46,6 +47,7 @@ start() {
 		-2 ${V2RAY_LOG}			\
 		-m -p ${V2RAY_PID}		\
 		--user ${V2RAY_USER}		\
+    --env V2RAY_LOCATION_ASSET=${V2RAY_ASSET} \
 		--exec ${V2RAY_CMD} -- -config ${V2RAY_CONFIG}
 	eend $?
 }
