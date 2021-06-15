@@ -5,7 +5,7 @@ Summary:        A platform for building proxies to bypass network restrictions.
 
 License:        MIT
 URL:            https://www.v2fly.org/
-Source0:        https://github.com/v2fly/v2ray-core/releases/download/v${version}/v2ray-linux-64.zip
+Source0:        https://github.com/v2fly/v2ray-core/releases/download/v%{version}/v2ray-linux-64.zip
 Patch0:         v2ray.service.patch
 Patch1:         v2ray@.service.patch
 BuildRequires:  systemd-devel
