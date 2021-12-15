@@ -1,1 +1,0 @@
-../../../../src/noice/copy.sh

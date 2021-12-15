@@ -1,1 +1,0 @@
-../../../../src/noice/list.sh
