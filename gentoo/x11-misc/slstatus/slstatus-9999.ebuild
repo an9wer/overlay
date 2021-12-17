@@ -22,7 +22,7 @@ RDEPEND="
 BDEPEND=""
 
 EGIT_REPO_URI="https://git.suckless.org/slstatus"
-EGIT_COMMIT="b14e039"
+EGIT_COMMIT="84a2f11"
 
 src_prepare() {
 	default
