@@ -19,8 +19,8 @@ example: ::
 
     $ sudo emerge --ask x11-wm/dwm::an9wer
 
-If You Are A Arch User
-----------------------
+If You Are An Arch User
+-----------------------
 
 ::
 
