@@ -12,7 +12,7 @@ Install eselect-repository package first if it isn't installed on your system:
 Next, use eselect repository command to add a local repository named an9wer,
 whose path points to the subdirectory *gentoo* of this repo: ::
 
-    $ sudo eselect repository add an9wer /path/to/pkg/gentoo
+    $ sudo eselect repository create an9wer /path/to/pkg/gentoo
 
 Finally you can install any Gentoo package in this repo like the following
 example: ::
