@@ -18,7 +18,6 @@ RDEPEND="
 	${DEPEND}
 	x11-libs/libXft
 	x11-libs/libX11
-	!x11-misc/tabbed
 "
 BDEPEND=""
 
