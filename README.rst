@@ -1,25 +1,24 @@
-How To Use This Repo?
+How to Use This Repo?
 =====================
 
-If You Are A Gentoo User
+If You Are a Gentoo User
 ------------------------
 
-Install eselect-repository package first if it isn't installed on your system:
+First, install eselect-repository package if it isn't installed on your system:
 ::
 
     $ sudo emerge --ask app-eselect/eselect-repository
 
 Next, use eselect repository command to add a local repository named an9wer,
-whose path points to the subdirectory *gentoo* of this repo: ::
+whose path points to the subdirectory *gentoo* in this repo: ::
 
     $ sudo eselect repository create an9wer /path/to/pkg/gentoo
 
-Finally you can install any Gentoo package in this repo like the following
-example: ::
+Finally, install some Gentoo package in this repo as follows: ::
 
     $ sudo emerge --ask x11-wm/dwm::an9wer
 
-If You Are An Arch User
+If You Are an Arch User
 -----------------------
 
 ::
@@ -28,7 +27,7 @@ If You Are An Arch User
     $ makepkg -s
     $ sudo pacman -U <pkg>-*.pkg.tar.zst
 
-If You Are A CentOS/Fedora User
+If You Are a CentOS/Fedora User
 -------------------------------
 
 Check `this link <https://copr.fedorainfracloud.org/coprs/an9wer/>`_ to find
