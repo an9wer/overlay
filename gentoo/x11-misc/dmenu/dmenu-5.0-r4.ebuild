@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="xinerama pass blog"
+IUSE="xinerama app blog pass"
 
 DEPEND=""
 RDEPEND="
@@ -45,14 +45,19 @@ src_install() {
 	dodoc README
 	dodoc LICENSE
 
-	if use pass; then
-		newbin ${FILESDIR}/dmenu_pass dmenu_pass
-		newbin ${FILESDIR}/dmenu_pass_run dmenu_pass_run
+	if use app; then
+		newbin ${FILESDIR}/dmenu_app dmenu_app
+		newbin ${FILESDIR}/dmenu_app_run dmenu_app_run
 	fi
 
 	if use blog; then
 		newbin ${FILESDIR}/dmenu_blog dmenu_blog
 		newbin ${FILESDIR}/dmenu_blog_run dmenu_blog_run
+	fi
+
+	if use pass; then
+		newbin ${FILESDIR}/dmenu_pass dmenu_pass
+		newbin ${FILESDIR}/dmenu_pass_run dmenu_pass_run
 	fi
 
 	save_config config.h

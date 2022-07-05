@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cat <<EOF
+st
+slock
+firefox
+qutebrowser
+remmina
+zoom
+libreaoffice
+telegram-desktop
+CALIBRE_USE_DARK_PALETTE=1 calibre
+flatpak run net.cozic.joplin_desktop
+EOF
