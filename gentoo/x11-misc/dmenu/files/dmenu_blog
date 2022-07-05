@@ -1,0 +1,10 @@
+#!/bin/bash
+
+blog_dir="$(dirname "$(readlink ~/.blog)")"
+
+if [[ -d $blog_dir/src ]]; then
+  IFS=$'\n'
+  for blog in $(find -L "$blog_dir/src" -type f -path '*.rst' -printf "%P\n"); do
+    echo "${blog%%.rst}"
+  done
+fi

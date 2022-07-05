@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="xinerama"
+IUSE="xinerama pass blog"
 
 DEPEND=""
 RDEPEND="
@@ -19,6 +19,7 @@ RDEPEND="
 	x11-libs/libXft
 	x11-libs/libX11
 	xinerama? ( x11-libs/libXinerama )
+	pass? ( app-admin/pass x11-misc/xdotool )
 "
 BDEPEND=""
 
@@ -43,6 +44,16 @@ src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
 	dodoc README
 	dodoc LICENSE
+
+	if use pass; then
+		newbin ${FILESDIR}/dmenu_pass dmenu_pass
+		newbin ${FILESDIR}/dmenu_pass_run dmenu_pass_run
+	fi
+
+	if use blog; then
+		newbin ${FILESDIR}/dmenu_blog dmenu_blog
+		newbin ${FILESDIR}/dmenu_blog_run dmenu_blog_run
+	fi
 
 	save_config config.h
 }
