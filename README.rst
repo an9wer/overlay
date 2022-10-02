@@ -17,12 +17,3 @@ whose path points to the subdirectory *gentoo* in this repo: ::
 Finally, install some Gentoo package in this repo as follows: ::
 
     $ sudo emerge --ask x11-wm/dwm::an9wer
-
-If You Are an Arch User
------------------------
-
-::
-
-    $ cd arch/<pkg>
-    $ makepkg -s
-    $ sudo pacman -U <pkg>-*.pkg.tar.zst
