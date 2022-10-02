@@ -26,9 +26,3 @@ If You Are an Arch User
     $ cd arch/<pkg>
     $ makepkg -s
     $ sudo pacman -U <pkg>-*.pkg.tar.zst
-
-If You Are a CentOS/Fedora User
--------------------------------
-
-Check `this link <https://copr.fedorainfracloud.org/coprs/an9wer/>`_ to find
-how to install rpm packages in this repo.
