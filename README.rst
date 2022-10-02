@@ -1,9 +1,6 @@
 How to Use This Repo?
 =====================
 
-If You Are a Gentoo User
-------------------------
-
 First, install eselect-repository package if it isn't installed on your system:
 ::
 
