@@ -5,8 +5,8 @@ EAPI=7
 inherit fcaps
 
 DESCRIPTION="A platform for building proxies to bypass network restrictions"
-HOMEPAGE=" https://www.v2ray.com/"
-SRC_URI="https://github.com/v2fly/v2ray-core/releases/download/v${PV}/v2ray-linux-64.zip -> v2ray-$PV-linux-arm64.zip"
+HOMEPAGE="https://www.v2ray.com/"
+SRC_URI="https://github.com/v2fly/v2ray-core/releases/download/v${PV}/v2ray-linux-64.zip -> v2ray-$PV-linux-amd64.zip"
 
 LICENSE="MIT"
 SLOT="0"
