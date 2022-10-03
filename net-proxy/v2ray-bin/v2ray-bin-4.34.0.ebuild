@@ -33,6 +33,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	fcaps CAP_NET_ADMIN /usr/bin/v2ray
-	fcaps CAP_NET_ADMIN /usr/bin/v2ctl
+	fcaps CAP_NET_ADMIN CAP_NET_BIND_SERVICE /usr/bin/v2ray
 }
