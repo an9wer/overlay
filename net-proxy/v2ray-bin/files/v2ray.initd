@@ -20,8 +20,8 @@ check_config() {
 	if [[ ! -f ${V2RAY_CONFIG} ]]; then
 		eend 1 "${V2RAY_CONFIG} does not exist."
 	fi
-  V2RAY_LOCATION_ASSET=${V2RAY_ASSET} ${V2RAY_CMD} -test -config ${V2RAY_CONFIG}
-  eend $? "Failed to parse ${V2RAY_CONFIG}."
+	 V2RAY_LOCATION_ASSET=${V2RAY_ASSET} ${V2RAY_CMD} -test -config ${V2RAY_CONFIG}
+	eend $? "Failed to parse ${V2RAY_CONFIG}."
 }
 
 create_logfile()
