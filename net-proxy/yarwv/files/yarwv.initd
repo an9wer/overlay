@@ -1,0 +1,61 @@
+#!/sbin/openrc-run
+# Copyright 2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="yarwv daemon"
+
+YARWV_CMD=/usr/bin/yarwv
+YARWV_PID=/var/run/yarwv.pid
+YARWV_USER=nobody:nobody
+
+: ${YARWV_LOG:=/var/log/yarwv.log}
+: ${YARWV_CONFIG:=/etc/yarwv/config.json}
+
+depend() {
+	need net
+}
+
+check_config() {
+	if [[ ! -f ${YARWV_CONFIG} ]]; then
+		eend 1 "${YARWV_CONFIG} does not exist."
+	fi
+	${YARWV_CMD} -test -config ${YARWV_CONFIG}
+	eend $? "Failed to parse ${YARWV_CONFIG}."
+}
+
+create_logfile()
+{
+	touch ${YARWV_LOG}
+	if [[ ! -f ${YARWV_LOG} ]]; then
+		eend 1 "${YARWV_LOG} cannot be created."
+	else
+		chown ${YARWV_USER} ${YARWV_LOG}
+	fi
+}
+
+start_pre() {
+	check_config || eend $?
+	create_logfile || eend $?
+}
+
+start() {
+	ebegin "Starting yarwv daemon"
+	ebegin "Log File: ${YARWV_LOG}"
+	start-stop-daemon --start --background	\
+		-1 ${YARWV_LOG} 		\
+		-2 ${YARWV_LOG}			\
+		-m -p ${YARWV_PID}		\
+		--user ${YARWV_USER}		\
+		--exec ${YARWV_CMD} -- -config ${YARWV_CONFIG}
+	eend $?
+}
+
+stop_pre() {
+	check_config || eend $?
+}
+
+stop() {
+	ebegin "Stopping yarwv daemon"
+	start-stop-daemon --stop -p ${YARWV_PID}
+	eend $?
+}
