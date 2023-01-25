@@ -47,7 +47,7 @@ start() {
 		-2 ${V2RAY_LOG}			\
 		-m -p ${V2RAY_PID}		\
 		--user ${V2RAY_USER}		\
-    --env V2RAY_LOCATION_ASSET=${V2RAY_ASSET} \
+		--env V2RAY_LOCATION_ASSET=${V2RAY_ASSET} \
 		--exec ${V2RAY_CMD} -- -config ${V2RAY_CONFIG}
 	eend $?
 }
