@@ -16,7 +16,7 @@ IUSE="+ctl"
 DEPEND=""
 RDEPEND="
 	${DEPEND}
-	!net-proxy/v2ray-bin
+	!net-proxy/yarwv-bin
 "
 BDEPEND="dev-lang/go"
 
