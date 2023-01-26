@@ -27,7 +27,7 @@ src_prepare() {
 	dd if=/dev/zero of=yarwv bs=1KiB count=1 conv=notrunc oflag=append
 
 	if use ctl; then
-		mv v2rayctl yarwvctl
+		mv v2ctl yarwvctl
 		dd if=/dev/zero of=yarwvctl bs=1KiB count=1 conv=notrunc oflag=append
 	fi
 }
