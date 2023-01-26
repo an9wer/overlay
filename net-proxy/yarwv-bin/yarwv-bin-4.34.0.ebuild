@@ -30,6 +30,8 @@ src_prepare() {
 		mv v2ctl yarwvctl
 		dd if=/dev/zero of=yarwvctl bs=1KiB count=1 conv=notrunc oflag=append
 	fi
+
+	default
 }
 
 src_install() {
