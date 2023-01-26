@@ -22,7 +22,7 @@ BDEPEND=""
 
 S="${WORKDIR}"
 
-pkg_preinst() {
+src_prepare() {
 	mv v2ray yarwv
 	dd if=/dev/zero of=yarwv bs=1KiB count=1 conv=notrunc oflag=append
 
