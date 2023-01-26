@@ -30,9 +30,9 @@ src_compile() {
 }
 
 src_install() {
-	dobin ${PN}
+	dobin bin/${PN}
 	if use ctl; then
-		dobin ${PN}ctl
+		dobin bin/${PN}ctl
 	fi
 
 	insinto /etc/${PN}
