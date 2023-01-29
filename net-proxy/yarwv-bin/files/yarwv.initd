@@ -20,7 +20,7 @@ check_config() {
 	if [[ ! -f ${YARWV_CONFIG} ]]; then
 		eend 1 "${YARWV_CONFIG} does not exist."
 	fi
-	YARWV_LOCATION_ASSET=${YARWV_ASSET} ${YARWV_CMD} -test -config ${YARWV_CONFIG}
+	V2RAY_LOCATION_ASSET=${YARWV_ASSET} ${YARWV_CMD} -test -config ${YARWV_CONFIG}
 	${YARWV_CMD} -test -config ${YARWV_CONFIG}
 	eend $? "Failed to parse ${YARWV_CONFIG}."
 }
@@ -48,7 +48,7 @@ start() {
 		-2 ${YARWV_LOG}			\
 		-m -p ${YARWV_PID}		\
 		--user ${YARWV_USER}		\
-		--env YARWV_LOCATION_ASSET=${YARWV_ASSET} \
+		--env V2RAY_LOCATION_ASSET=${YARWV_ASSET} \
 		--exec ${YARWV_CMD} -- -config ${YARWV_CONFIG}
 	eend $?
 }
