@@ -2,6 +2,7 @@
 
 cat <<EOF
 st
+st -n vifm vifm
 slock
 firefox
 zoom
