@@ -9,4 +9,7 @@ zoom
 libreoffice
 telegram-desktop
 flatpak run net.cozic.joplin_desktop
+loginctl sleep
+loginctl reboot
+loginctl poweroff
 EOF
